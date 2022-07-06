@@ -9,6 +9,8 @@ import Foundation
 import CommonCrypto
 
 extension String {
+    /// `key` length: `16`(AES-128) or `24`(AES-192) or `32`(AES-256)
+    /// `iv` length should equal `key` length
     func jh3des(operation:CCOperation, _ key: String, _ iv: String?) -> String? {
         if let keyData = key.data(using: .utf8) {
             var cryptData: Data?
